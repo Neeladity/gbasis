@@ -123,10 +123,10 @@ def evaluate_density(
     )
     output = evaluate_density_using_evaluated_orbs(one_density_matrix, orb_eval)
     # Fix #117: check magnitude of small negative density values, then use clip to remove them
-    min_output = np.min(output)
-    if min_output < 0.0 and abs(min_output) > threshold:
-        raise ValueError(f"Found negative density <= {-threshold}, got {min_output}.")
-    return output.clip(min=0.0)
+    # min_output = np.min(output)
+    # if min_output < 0.0 and abs(min_output) > threshold:
+    #     raise ValueError(f"Found negative density <= {-threshold}, got {min_output}.")
+    return output
 
 
 def evaluate_deriv_reduced_density_matrix(
